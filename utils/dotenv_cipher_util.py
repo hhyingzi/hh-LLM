@@ -10,6 +10,7 @@ encrypted_dir = os.path.join(root_dir, 'encrypted_config_files')
 # 明文文件，密文文件
 file_groups = [
     ['model_tests/model_api/openai_api/.env.closeai', 'openai_api.env.closeai'],  # openai api
+    ['packages_usage/LlamaIndex/.env.llamaindex', 'LlamaIndex.env.llamaindex']
 ]
 
 
@@ -90,5 +91,5 @@ def check_env():
 
 
 if __name__ == '__main__':
-    # do_encrypt()
-    do_decrypt()
+    do_encrypt()
+    # do_decrypt()

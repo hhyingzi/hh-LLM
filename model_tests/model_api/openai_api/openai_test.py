@@ -17,7 +17,7 @@ def chat_with_openai():
         ]
     )
 
-    print(completion.choices[0].message)
+    print(completion.choices[0].message.content)
 
 def response_with_json():
     response = client.chat.completions.create(
@@ -31,4 +31,4 @@ def response_with_json():
     print(response.choices[0].message.content)
 
 if __name__ == '__main__':
-    response_with_json()
+    chat_with_openai()
