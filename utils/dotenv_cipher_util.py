@@ -1,17 +1,15 @@
 import os
 from dotenv import load_dotenv
 import hashlib  # PBKDF2算法根据口令生成密钥
-from crypto.Cipher import AES
-from crypto.Util.Padding import pad, unpad  # 使用标准PKCS#7填充法，进行边界填充与移除填充。
+from Crypto.Cipher import AES
+from Crypto.Util.Padding import pad, unpad  # 使用标准PKCS#7填充法，进行边界填充与移除填充。
 
 
-root_dir = os.path.dirname(__file__)
+root_dir = os.path.dirname(os.path.dirname(__file__))
 encrypted_dir = os.path.join(root_dir, 'encrypted_config_files')
 # 明文文件，密文文件
 file_groups = [
-    ['ingestion-service/.env.example', 'ingestion-service.env.example'],  # 检索服务配置
-    ['inference-service/backend/.env.example', 'inference-service.backend.env.example'],  # 推理服务后端配置
-    ['inference-service/frontend/.env', 'inference-service.frontend.env'],  # 推理服务前端配置
+    ['model_tests/model_api/openai_api/.env.closeai', 'openai_api.env.closeai'],  # openai api
 ]
 
 
@@ -20,7 +18,7 @@ def do_encrypt():
     加密程序，将明文文件，加密为密文文件
     """
     # password = getpass.getpass("请输入密码：")
-    password = input("请输入密码（调试用）：")  # 调试用
+    password = input("请输入密码（显式）：")  # 调试用
     for group in file_groups:
         plain_file = os.path.join(root_dir, group[0])
         encrypted_file = os.path.join(encrypted_dir, group[1])
