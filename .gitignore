@@ -162,4 +162,4 @@ cython_debug/
 #.idea/
 
 # 隐藏环境变量文件
-.env.
+.env.*
