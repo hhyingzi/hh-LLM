@@ -11,6 +11,6 @@ from transformers import pipeline
 
 # 文本生成推理任务演示。默认模型 “openai-community/gpt2”
 prompt = "Hugging Face is a community-based open-source platform for machine learning."
-generator = pipeline(task="text-generation")
+generator = pipeline(task="text-generation", device_map="auto")
 response = generator(prompt)  # doctest: +SKIP
 print(response[0]['generated_text'])

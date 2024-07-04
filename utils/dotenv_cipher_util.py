@@ -10,6 +10,7 @@ encrypted_dir = os.path.join(root_dir, 'encrypted_config_files')
 # 明文文件，密文文件
 file_groups = [
     ['model_tests/model_api/openai_api/.env.closeai', 'openai_api.env.closeai'],  # openai api
+    ['model_tests/model_api/zhipuai_api/zhipuai.env', 'zhipuai.env'],  # 清华智谱清言 api，兼容 openai 调用形式
     ['packages_usage/LlamaIndex/.env.llamaindex', 'LlamaIndex.env.llamaindex'],
     ['packages_usage/HuggingFace/Transformers/transformers.env', 'transformers.env']
 ]
