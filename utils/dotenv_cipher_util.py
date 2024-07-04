@@ -93,5 +93,5 @@ def check_env():
 
 
 if __name__ == '__main__':
-    do_encrypt()
-    # do_decrypt()
+    # do_encrypt()
+    do_decrypt()
