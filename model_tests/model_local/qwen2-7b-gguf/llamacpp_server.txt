@@ -1,0 +1,7 @@
+# 首先下载 llama.cpp 的二进制：https://github.com/ggerganov/llama.cpp/releases/download/b3441/llama-b3441-bin-ubuntu-x64.zip
+$ cd /mnt/workspace/codes/myenv/llama.cpp
+$ export qwen2_7b_gguf=/mnt/workspace/model/Qwen2-7B-Instruct-GGUF/Qwen2-7B-Instruct.Q5_K_M.gguf
+$ ./llama-server -m qwen2-7b-gguf -ngl 28 -fa
+
+# Basic web UI can be accessed via browser: http://localhost:8080
+# Chat completion endpoint: http://localhost:8080/v1/chat/completions
