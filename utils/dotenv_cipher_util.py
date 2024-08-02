@@ -7,11 +7,13 @@ from Crypto.Util.Padding import pad, unpad  # 使用标准PKCS#7填充法，进�
 
 root_dir = os.path.dirname(os.path.dirname(__file__))
 encrypted_dir = os.path.join(root_dir, 'encrypted_config_files')
+os.makedirs(encrypted_dir, exist_ok=True)
+
 # 明文文件，密文文件
 file_groups = [
-    ['model_tests/model_api/openai_api/.env.closeai', 'openai_api.env.closeai'],  # openai api
+    ['model_tests/model_api/openai_api/closeai.env', 'closeai.env'],  # openai api
     ['model_tests/model_api/zhipuai_api/zhipuai.env', 'zhipuai.env'],  # 清华智谱清言 api，兼容 openai 调用形式
-    ['packages_usage/LlamaIndex/.env.llamaindex', 'LlamaIndex.env.llamaindex'],
+    ['packages_usage/LlamaIndex/llamaindex.env', 'llamaindex.env'],
     ['packages_usage/HuggingFace/Transformers/transformers.env', 'transformers.env']
 ]
 
@@ -93,5 +95,5 @@ def check_env():
 
 
 if __name__ == '__main__':
-    # do_encrypt()
-    do_decrypt()
+    do_encrypt()
+    # do_decrypt()

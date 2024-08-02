@@ -4,7 +4,7 @@ import os
 from dotenv import load_dotenv
 from openai import OpenAI
 
-load_dotenv(".env.closeai")
+load_dotenv(os.path.dirname(__file__)+"/closeai.env", override=True)
 client = OpenAI()
 
 def chat_with_openai():
@@ -12,8 +12,8 @@ def chat_with_openai():
         model="gpt-3.5-turbo",
         messages=[
             {"role": "system",
-             "content": "You are a poetic assistant, skilled in explaining complex programming concepts with creative flair."},
-            {"role": "user", "content": "Compose a poem that explains the concept of recursion in programming."}
+             "content": "你是一个人工智能助手。"},
+            {"role": "user", "content": "香蕉是什么颜色的？"}
         ]
     )
 

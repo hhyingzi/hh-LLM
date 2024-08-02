@@ -6,11 +6,12 @@ from llama_index.llms.openai import OpenAI
 from llama_index.core.llms import ChatMessage
 
 
-load_dotenv(".env.llamaindex")
+load_dotenv(os.path.dirname(__file__)+"/llamaindex.env", override=True)
+client = OpenAI()
 
 def complete_with_closeai():
     # non-streaming
-    resp = OpenAI().complete("Paul Graham is ")
+    resp = OpenAI().complete("香蕉是什么颜色的？")
     print(resp)
 
 
@@ -19,7 +20,7 @@ def chat_with_closeai():
         ChatMessage(
             role="system", content="你是一个编程助手。"
         ),
-        ChatMessage(role="user", content="gpt-3.5-turbo-instruct 是什么，和gpt-3.5-turbo什么区别"),
+        ChatMessage(role="user", content="香蕉是什么颜色的？"),
     ]
     resp = OpenAI().chat(messages)
     print(resp)
